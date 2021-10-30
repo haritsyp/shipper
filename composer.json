@@ -6,6 +6,11 @@
             "Haritsyp\\Shipper\\": "src/"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "Haritsyp\\Shipper\\Tests\\": "tests"
+        }
+    },
     "authors": [
         {
             "name": "Harits YP",
@@ -16,10 +21,14 @@
         "php" : "^7.2.5|^8.0",
         "laravel/framework": "^8.0|^7.0|^6.0",
         "ext-curl": "*",
-        "phpunit/phpunit": "^8.5"
+        "phpunit/phpunit": "^8.5",
+        "ext-json": "*"
     },
     "classmap": [
         "database/seeds",
         "database/factories"
-    ]
+    ],
+    "require-dev": {
+        "orchestra/testbench": "^5.20"
+    }
 }

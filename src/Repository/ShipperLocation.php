@@ -6,6 +6,11 @@ use Haritsyp\Shipper\Shipper;
 
 class ShipperLocation extends Shipper
 {
+    public function __construct()
+    {
+        parent::__construct();
+    }
+
     /**
      * Shipper Get Provinces
      *
