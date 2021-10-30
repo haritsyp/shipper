@@ -4,27 +4,27 @@ namespace Haritsyp\Shipper\Models\Callback;
 
 class Callback
 {
-    private $auth;
+    public $auth;
 
-    private $order_id;
+    public $order_id;
 
-    private $tracking_id;
+    public $tracking_id;
 
-    private $order_tracking_id;
+    public $order_tracking_id;
 
-    private $external_id;
+    public $external_id;
 
-    private $status_date;
+    public $status_date;
 
-    private $internal;
+    public $internal;
 
-    private $external;
+    public $external;
 
-    private $internal_status;
+    public $internal_status;
 
-    private $external_status;
+    public $external_status;
 
-    private $awb;
+    public $awb;
 
     public function __construct(array $data) {
         foreach($data as $key => $val) {
@@ -83,7 +83,7 @@ class Callback
     }
 
     /**
-     * @return mixed
+     * @return CallbackStatus
      */
     public function getInternal()
     {
@@ -91,7 +91,7 @@ class Callback
     }
 
     /**
-     * @return mixed
+     * @return CallbackStatus
      */
     public function getExternal()
     {
@@ -99,7 +99,7 @@ class Callback
     }
 
     /**
-     * @return mixed
+     * @return CallbackStatus
      */
     public function getInternalStatus()
     {
@@ -107,7 +107,7 @@ class Callback
     }
 
     /**
-     * @return mixed
+     * @return CallbackStatus
      */
     public function getExternalStatus()
     {
