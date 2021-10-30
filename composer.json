@@ -1,0 +1,24 @@
+{
+    "name": "haritsyp/shipper",
+    "description": "Shipper API V3 PHP Client",
+    "autoload": {
+        "psr-4": {
+            "Haritsyp\\Shipper\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Harits YP",
+            "email": "harits.yp@gmail.com"
+        }
+    ],
+    "require": {
+        "php" : "^7.2.5|^8.0",
+        "laravel/framework": "^8.0|^7.0|^6.0",
+        "illuminate/contracts": "^6.0|^7.0|^8.0"
+    },
+    "classmap": [
+        "database/seeds",
+        "database/factories"
+    ]
+}
