@@ -24,7 +24,7 @@ class ShipperPackageServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->publishes([
-            __DIR__ . '/config/shipper.php' => config_path('shipper.php'),
+            __DIR__ . '/../config/shipper.php' => config_path('shipper.php'),
         ]);
     }
 }
