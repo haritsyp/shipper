@@ -8,11 +8,12 @@ trait ApiRequester
     {
         $curl = curl_init();
 
-        $param['limit'] = 100;
+        $url = $this->getBaseUrl() . $uri;
 
-        $query = http_build_query($param);
-
-        $url = $this->getBaseUrl() . $uri . '?' . $query;
+        if ($param) {
+            $query = http_build_query($param);
+            $url = $url . '?' . $query;
+        }
 
         curl_setopt_array($curl, [
             CURLOPT_URL => $url,
@@ -47,8 +48,6 @@ trait ApiRequester
 
         $url = $this->getBaseUrl() . $uri;
 
-        dump($body);
-
         curl_setopt_array($curl, [
             CURLOPT_URL => $url,
             CURLOPT_RETURNTRANSFER => true,
@@ -69,17 +68,117 @@ trait ApiRequester
 
         $err = curl_error($curl);
 
-        dump(curl_getinfo($curl));
-
         curl_close($curl);
 
-
         if ($err) {
-            dump($err);
             return json_decode($err, false);
         }
 
-        dump($response);
+        return json_decode($response, false);
+    }
+
+    protected function put(string $uri, array $body)
+    {
+        $curl = curl_init();
+
+        $url = $this->getBaseUrl() . $uri;
+
+        curl_setopt_array($curl, [
+            CURLOPT_URL => $url,
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => "",
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 30,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => "PUT",
+            CURLOPT_POSTFIELDS => json_encode($body),
+            CURLOPT_HTTPHEADER => [
+                "Accept: application/json",
+                "Content-Type: application/json",
+                "X-API-Key: " . $this->getApiKey()
+            ],
+        ]);
+
+        $response = curl_exec($curl);
+
+        $err = curl_error($curl);
+
+        curl_close($curl);
+
+        if ($err) {
+            return json_decode($err, false);
+        }
+
+        return json_decode($response, false);
+    }
+
+    protected function patch(string $uri, array $body)
+    {
+        $curl = curl_init();
+
+        $url = $this->getBaseUrl() . $uri;
+
+        curl_setopt_array($curl, [
+            CURLOPT_URL => $url,
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => "",
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 30,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => "PUT",
+            CURLOPT_POSTFIELDS => json_encode($body),
+            CURLOPT_HTTPHEADER => [
+                "Accept: application/json",
+                "Content-Type: application/json",
+                "X-API-Key: " . $this->getApiKey()
+            ],
+        ]);
+
+        $response = curl_exec($curl);
+
+        $err = curl_error($curl);
+
+        curl_close($curl);
+
+        if ($err) {
+            return json_decode($err, false);
+        }
+
+        return json_decode($response, false);
+    }
+
+    protected function delete(string $uri, array $body)
+    {
+        $curl = curl_init();
+
+        $url = $this->getBaseUrl() . $uri;
+
+        curl_setopt_array($curl, [
+            CURLOPT_URL => $url,
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => "",
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 30,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => "DELETE",
+            CURLOPT_POSTFIELDS => json_encode($body),
+            CURLOPT_HTTPHEADER => [
+                "Accept: application/json",
+                "Content-Type: application/json",
+                "X-API-Key: " . $this->getApiKey()
+            ],
+        ]);
+
+        $response = curl_exec($curl);
+
+        $err = curl_error($curl);
+
+        curl_close($curl);
+
+        if ($err) {
+            return json_decode($err, false);
+        }
+
         return json_decode($response, false);
     }
 }

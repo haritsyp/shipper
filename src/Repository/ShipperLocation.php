@@ -12,6 +12,21 @@ class ShipperLocation extends Shipper
     }
 
     /**
+     * Shipper Get Location by Keyword
+     *
+     * @param string $keyword
+     * @param null $adm_level
+     * @return object
+     */
+    public function getLocation(string $keyword, $adm_level = null)
+    {
+        return $this->get('v3/location', array_filter([
+            'keyword' => $keyword,
+            'adm_level' => $adm_level
+        ]));
+    }
+
+    /**
      * Shipper Get Provinces
      *
      * @param int|null $country_id

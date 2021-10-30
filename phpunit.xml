@@ -20,6 +20,6 @@
         </whitelist>
     </filter>
     <php>
-        <env name="SHIPPER_API_KEY" value=""/>
+        <env name="SHIPPER_API_KEY" value="ppYqieENpz27SnngX1NngMTUI6SPvriJ0YjztRy7AQu89FzaFx9LoUAzU1QoNO9I"/>
     </php>
 </phpunit>

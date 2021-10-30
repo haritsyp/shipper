@@ -5,7 +5,7 @@ namespace Haritsyp\Shipper;
 use Haritsyp\Shipper\Helpers\ApiRequester;
 use Illuminate\Support\Facades\Config;
 
-class Shipper
+abstract class Shipper
 {
     //trait declaration
     use ApiRequester;
@@ -33,7 +33,7 @@ class Shipper
 
     public function __construct()
     {
-        $this->api_key = config('shipper.api_key','');
+        $this->api_key = config('shipper.api_key', '');
 
         $this->base_url = config('shipper.base_url', 'https://merchant-api-sandbox.shipper.id/');
 
