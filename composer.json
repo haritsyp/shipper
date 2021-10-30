@@ -1,6 +1,7 @@
 {
     "name": "haritsyp/shipper",
     "description": "Shipper API V3 PHP Client",
+    "license": "MIT",
     "autoload": {
         "psr-4": {
             "Haritsyp\\Shipper\\": "src/"
