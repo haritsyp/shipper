@@ -29,7 +29,11 @@ class Callback
     public function __construct(array $data) {
         foreach($data as $key => $val) {
             if(property_exists(__CLASS__,$key)) {
-                $this->$key = $val;
+                if(is_array($val)){
+                    $this->key = new CallbackStatus($val);
+                }else{
+                    $this->$key = $val;
+                }
             }
         }
     }

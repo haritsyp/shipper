@@ -4,11 +4,11 @@ namespace Haritsyp\Shipper\Models\Callback;
 
 class CallbackStatus
 {
-    private $id;
+    public $id;
 
-    private $name;
+    public $name;
 
-    private $description;
+    public $description;
 
     /**
      * CallbackStatus constructor.
