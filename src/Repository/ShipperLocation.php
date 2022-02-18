@@ -52,32 +52,35 @@ class ShipperLocation extends Shipper
      * Shipper Get Cities
      *
      * @param int $province_id
+     * @param array $params
      * @return object
      */
-    public function getCitiesByProvince(int $province_id)
+    public function getCitiesByProvince(int $province_id, $params = [])
     {
-        return $this->get("v3/location/province/$province_id/cities", []);
+        return $this->get("v3/location/province/$province_id/cities", $params);
     }
 
     /**
      * Shipper Get Suburbs
      *
      * @param int $city_id
+     * @param array $params
      * @return object
      */
-    public function getSuburbsByCity(int $city_id)
+    public function getSuburbsByCity(int $city_id, $params = [])
     {
-        return $this->get("v3/location/city/$city_id/suburbs", []);
+        return $this->get("v3/location/city/$city_id/suburbs", $params);
     }
 
     /**
      * Shipper Get Area
      *
      * @param int $suburb
+     * @param array $params
      * @return object
      */
-    public function getAreasBySuburb(int $suburb)
+    public function getAreasBySuburb(int $suburb, $params = [])
     {
-        return $this->get("v3/location/suburb/$suburb/areas", []);
+        return $this->get("v3/location/suburb/$suburb/areas", $params);
     }
 }
