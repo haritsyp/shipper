@@ -41,11 +41,13 @@ class ShipperLocation extends Shipper
      * Shipper Get Provinces
      *
      * @param int|null $country_id
+     * @param array $params
      * @return object
      */
-    public function getProvinces(int $country_id = null)
+    public function getProvinces(int $country_id = null, $params = [])
     {
-        return $this->get('v3/location/provinces', ['country_id' => $country_id ?? config('shipper.country_id')]);
+        $params['country_id'] = $country_id ?? config('shipper.country_id');
+        return $this->get('v3/location/provinces', $params);
     }
 
     /**
