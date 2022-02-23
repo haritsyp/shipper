@@ -2,7 +2,9 @@
 
 namespace Haritsyp\Shipper\Models\Callback;
 
-class CallbackStatus
+use Haritsyp\Shipper\Helpers\Status;
+
+class CallbackStatus implements Status
 {
     public $code;
 
