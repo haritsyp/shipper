@@ -16,9 +16,10 @@ class ShipperPricing extends Shipper
      * @param int $height
      * @param float $weight
      * @param float $price
+     * @param bool $for_order
      * @return object
      */
-    public function getPricingDomesticByArea(int $origin, int $destination, int $length, int $width, int $height, float $weight, float $price)
+    public function getPricingDomesticByArea(int $origin, int $destination, int $length, int $width, int $height, float $weight, float $price, $for_order = true)
     {
         return $this->post('v3/pricing/domestic', array(
             'destination' =>
@@ -35,6 +36,7 @@ class ShipperPricing extends Shipper
             'weight' => $weight,
             'limit' => 100,
             'item_value' => $price,
+            'for_order' => $for_order
         ));
     }
 }
