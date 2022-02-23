@@ -9,7 +9,7 @@ interface Status
             'code' => '1000',
             'status' => 'Paket sedang dipersiapkan',
             'description' => 'Paket sedang dipersiapkan',
-            'flag' => 'Ready to Ship',
+            'flag' => 'Printed',
         ],
         1 => [
             'code' => '1010',
