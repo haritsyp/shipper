@@ -54,7 +54,7 @@ class ShipperPickup extends Shipper
      */
     public function getPickupTimeSlot(string $timezone = 'Asia/Jakarta', $request_time = null)
     {
-        return $this->get('v3/pickup', array_filter([
+        return $this->get('v3/pickup/timeslot', array_filter([
             'time_zone' => $timezone,
             'request_time' => $request_time
         ]));
