@@ -4,6 +4,8 @@ namespace Haritsyp\Shipper\Models\Callback;
 
 class CallbackStatus
 {
+    public $code;
+
     public $id;
 
     public $name;
@@ -21,6 +23,14 @@ class CallbackStatus
                 $this->$key = $val;
             }
         }
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCode()
+    {
+        return $this->code;
     }
 
     /**
