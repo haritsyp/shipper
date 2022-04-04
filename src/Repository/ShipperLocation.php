@@ -12,24 +12,23 @@ class ShipperLocation extends Shipper
     }
 
     /**
-     * Shipper Get Location by Keyword
+     * Shipper Get Location by Keyword.
      *
-     * @param string $keyword
      * @param null $adm_level
+     *
      * @return object
      */
     public function getLocation(string $keyword, $adm_level = null)
     {
         return $this->get('v3/location', array_filter([
             'keyword' => $keyword,
-            'adm_level' => $adm_level
+            'adm_level' => $adm_level,
         ]));
     }
 
     /**
-     * Shipper Get Provinces
+     * Shipper Get Provinces.
      *
-     * @param int|null $country_id
      * @return object
      */
     public function getCountries(int $country_id = null)
@@ -38,23 +37,24 @@ class ShipperLocation extends Shipper
     }
 
     /**
-     * Shipper Get Provinces
+     * Shipper Get Provinces.
      *
-     * @param int|null $country_id
      * @param array $params
+     *
      * @return object
      */
     public function getProvinces(int $country_id = null, $params = [])
     {
         $params['country_id'] = $country_id ?? config('shipper.country_id');
+
         return $this->get('v3/location/provinces', $params);
     }
 
     /**
-     * Shipper Get Cities
+     * Shipper Get Cities.
      *
-     * @param int $province_id
      * @param array $params
+     *
      * @return object
      */
     public function getCitiesByProvince(int $province_id, $params = [])
@@ -63,10 +63,10 @@ class ShipperLocation extends Shipper
     }
 
     /**
-     * Shipper Get Suburbs
+     * Shipper Get Suburbs.
      *
-     * @param int $city_id
      * @param array $params
+     *
      * @return object
      */
     public function getSuburbsByCity(int $city_id, $params = [])
@@ -75,14 +75,26 @@ class ShipperLocation extends Shipper
     }
 
     /**
-     * Shipper Get Area
+     * Shipper Get Area.
      *
-     * @param int $suburb
      * @param array $params
+     *
      * @return object
      */
     public function getAreasBySuburb(int $suburb, $params = [])
     {
         return $this->get("v3/location/suburb/$suburb/areas", $params);
+    }
+
+    /**
+     * Shipper Get Area.
+     *
+     * @param array $params
+     *
+     * @return object
+     */
+    public function getAreasByArea(int $area, $params = [])
+    {
+        return $this->get("v3/location/area/$area", $params);
     }
 }
