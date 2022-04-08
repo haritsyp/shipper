@@ -19,7 +19,7 @@ class ShipperPricing extends Shipper
      * @param bool $for_order
      * @return object
      */
-    public function getPricingDomesticByArea(int $origin, int $destination, int $length, int $width, int $height, float $weight, float $price, $for_order = true)
+    public function getPricingDomesticByArea(int $origin, int $destination, int $length, int $width, int $height, float $weight, float $price, $for_order = false)
     {
         return $this->post('v3/pricing/domestic', array(
             'destination' =>
@@ -51,7 +51,7 @@ class ShipperPricing extends Shipper
      * @param bool $for_order
      * @return mixed
      */
-    public function getPricingDomestic(array $origin, array $destination, int $length, int $width, int $height, float $weight, float $price, $for_order = true)
+    public function getPricingDomestic(array $origin, array $destination, int $length, int $width, int $height, float $weight, float $price, $for_order = false)
     {
         return $this->post('v3/pricing/domestic', array(
             'destination' => $destination,
@@ -78,7 +78,7 @@ class ShipperPricing extends Shipper
      * @param bool $for_order
      * @return mixed
      */
-    public function getPricingDomesticByRateType(string $rate_type, array $origin, array $destination, int $length, int $width, int $height, float $weight, float $price, $for_order = true)
+    public function getPricingDomesticByRateType(string $rate_type, array $origin, array $destination, int $length, int $width, int $height, float $weight, float $price, $for_order = false)
     {
         return $this->post('v3/pricing/domestic/' . $rate_type, array(
             'destination' => $destination,
