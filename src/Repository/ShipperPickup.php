@@ -35,7 +35,7 @@ class ShipperPickup extends Shipper
      */
     public function createWithTimeSlot($order_id, $start_time, $end_time, $timezone)
     {
-        return $this->post('v3/pickup', array_filter([
+        return $this->post('v3/pickup/timeslot', array_filter([
             'data' => [
                 'order_activation' => [
                     'order_id' => [$order_id],
