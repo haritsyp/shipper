@@ -46,6 +46,10 @@ trait ApiRequester
 
         curl_close($curl);
 
+        Log::info(json_encode([
+            'response' => json_decode($response,false)
+        ]));
+
         if ($err) {
             return json_decode($err);
         }
@@ -90,6 +94,10 @@ trait ApiRequester
         $err = curl_error($curl);
 
         curl_close($curl);
+
+        Log::info(json_encode([
+            'response' => json_decode($response,false)
+        ]));
 
         if ($err) {
             return json_decode($err, false);
@@ -136,6 +144,10 @@ trait ApiRequester
 
         curl_close($curl);
 
+        Log::info(json_encode([
+            'response' => json_decode($response,false)
+        ]));
+
         if ($err) {
             return json_decode($err, false);
         }
@@ -181,6 +193,10 @@ trait ApiRequester
 
         curl_close($curl);
 
+        Log::info(json_encode([
+            'response' => json_decode($response,false)
+        ]));
+
         if ($err) {
             return json_decode($err, false);
         }
@@ -225,6 +241,10 @@ trait ApiRequester
         $err = curl_error($curl);
 
         curl_close($curl);
+
+        Log::info(json_encode([
+            'response' => json_decode($response,false)
+        ]));
 
         if ($err) {
             return json_decode($err, false);
