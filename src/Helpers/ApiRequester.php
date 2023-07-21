@@ -2,6 +2,8 @@
 
 namespace Haritsyp\Shipper\Helpers;
 
+use Illuminate\Support\Facades\Log;
+
 trait ApiRequester
 {
     protected function get(string $uri, array $param)
@@ -14,6 +16,15 @@ trait ApiRequester
             $query = http_build_query($param);
             $url = $url . '?' . $query;
         }
+
+        Log::info(json_encode([
+            'url' => $url,
+            'body' => "",
+            'header' => [
+                "Accept: application/json",
+                "X-API-Key: " . $this->getApiKey()
+            ]
+        ]));
 
         curl_setopt_array($curl, [
             CURLOPT_URL => $url,
@@ -47,6 +58,16 @@ trait ApiRequester
         $curl = curl_init();
 
         $url = $this->getBaseUrl() . $uri;
+
+        Log::info(json_encode([
+            'url' => $url,
+            'body' => $body,
+            'header' => [
+                "Accept: application/json",
+                "Content-Type: application/json",
+                "X-API-Key: " . $this->getApiKey()
+            ]
+        ]));
 
         curl_setopt_array($curl, [
             CURLOPT_URL => $url,
@@ -83,6 +104,16 @@ trait ApiRequester
 
         $url = $this->getBaseUrl() . $uri;
 
+        Log::info(json_encode([
+            'url' => $url,
+            'body' => $body,
+            'header' => [
+                "Accept: application/json",
+                "Content-Type: application/json",
+                "X-API-Key: " . $this->getApiKey()
+            ]
+        ]));
+
         curl_setopt_array($curl, [
             CURLOPT_URL => $url,
             CURLOPT_RETURNTRANSFER => true,
@@ -118,6 +149,16 @@ trait ApiRequester
 
         $url = $this->getBaseUrl() . $uri;
 
+        Log::info(json_encode([
+            'url' => $url,
+            'body' => $body,
+            'header' => [
+                "Accept: application/json",
+                "Content-Type: application/json",
+                "X-API-Key: " . $this->getApiKey()
+            ]
+        ]));
+
         curl_setopt_array($curl, [
             CURLOPT_URL => $url,
             CURLOPT_RETURNTRANSFER => true,
@@ -152,6 +193,16 @@ trait ApiRequester
         $curl = curl_init();
 
         $url = $this->getBaseUrl() . $uri;
+
+        Log::info(json_encode([
+            'url' => $url,
+            'body' => $body,
+            'header' => [
+                "Accept: application/json",
+                "Content-Type: application/json",
+                "X-API-Key: " . $this->getApiKey()
+            ]
+        ]));
 
         curl_setopt_array($curl, [
             CURLOPT_URL => $url,
