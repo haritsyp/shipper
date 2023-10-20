@@ -18,9 +18,7 @@ class ShipperPickup extends Shipper
         return $this->post('v3/pickup', array_filter([
             'data' => [
                 'order_activation' => [
-                    'agent_id' => $agent_id,
-                    'order_id' => [$order_id],
-                    'pickup_time' => $pickup_time,
+                    'order_id' => [$order_id]
                 ],
             ],
         ]));
