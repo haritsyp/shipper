@@ -17,14 +17,14 @@ trait ApiRequester
             $url = $url . '?' . $query;
         }
 
-        Log::info(json_encode([
+        /*Log::info(json_encode([
             'url' => $url,
             'body' => "",
             'header' => [
                 "Accept: application/json",
                 "X-API-Key: " . $this->getApiKey()
             ]
-        ]));
+        ]));*/
 
         curl_setopt_array($curl, [
             CURLOPT_URL => $url,
@@ -46,9 +46,9 @@ trait ApiRequester
 
         curl_close($curl);
 
-        Log::info(json_encode([
+        /*Log::info(json_encode([
             'response' => json_decode($response,false)
-        ]));
+        ]));*/
 
         if ($err) {
             return json_decode($err);
@@ -63,7 +63,7 @@ trait ApiRequester
 
         $url = $this->getBaseUrl() . $uri;
 
-        Log::info(json_encode([
+        /*Log::info(json_encode([
             'url' => $url,
             'body' => $body,
             'header' => [
@@ -71,7 +71,7 @@ trait ApiRequester
                 "Content-Type: application/json",
                 "X-API-Key: " . $this->getApiKey()
             ]
-        ]));
+        ]));*/
 
         curl_setopt_array($curl, [
             CURLOPT_URL => $url,
@@ -95,9 +95,9 @@ trait ApiRequester
 
         curl_close($curl);
 
-        Log::info(json_encode([
+        /*Log::info(json_encode([
             'response' => json_decode($response,false)
-        ]));
+        ]));*/
 
         if ($err) {
             return json_decode($err, false);
@@ -112,7 +112,7 @@ trait ApiRequester
 
         $url = $this->getBaseUrl() . $uri;
 
-        Log::info(json_encode([
+        /*Log::info(json_encode([
             'url' => $url,
             'body' => $body,
             'header' => [
@@ -120,7 +120,7 @@ trait ApiRequester
                 "Content-Type: application/json",
                 "X-API-Key: " . $this->getApiKey()
             ]
-        ]));
+        ]));*/
 
         curl_setopt_array($curl, [
             CURLOPT_URL => $url,
@@ -144,9 +144,9 @@ trait ApiRequester
 
         curl_close($curl);
 
-        Log::info(json_encode([
+        /*Log::info(json_encode([
             'response' => json_decode($response,false)
-        ]));
+        ]));*/
 
         if ($err) {
             return json_decode($err, false);
@@ -161,7 +161,7 @@ trait ApiRequester
 
         $url = $this->getBaseUrl() . $uri;
 
-        Log::info(json_encode([
+        /*Log::info(json_encode([
             'url' => $url,
             'body' => $body,
             'header' => [
@@ -169,7 +169,7 @@ trait ApiRequester
                 "Content-Type: application/json",
                 "X-API-Key: " . $this->getApiKey()
             ]
-        ]));
+        ]));*/
 
         curl_setopt_array($curl, [
             CURLOPT_URL => $url,
@@ -193,9 +193,9 @@ trait ApiRequester
 
         curl_close($curl);
 
-        Log::info(json_encode([
+        /*Log::info(json_encode([
             'response' => json_decode($response,false)
-        ]));
+        ]));*/
 
         if ($err) {
             return json_decode($err, false);
@@ -210,7 +210,7 @@ trait ApiRequester
 
         $url = $this->getBaseUrl() . $uri;
 
-        Log::info(json_encode([
+        /*Log::info(json_encode([
             'url' => $url,
             'body' => $body,
             'header' => [
@@ -218,7 +218,7 @@ trait ApiRequester
                 "Content-Type: application/json",
                 "X-API-Key: " . $this->getApiKey()
             ]
-        ]));
+        ]));*/
 
         curl_setopt_array($curl, [
             CURLOPT_URL => $url,
@@ -242,9 +242,9 @@ trait ApiRequester
 
         curl_close($curl);
 
-        Log::info(json_encode([
+        /*Log::info(json_encode([
             'response' => json_decode($response,false)
-        ]));
+        ]));*/
 
         if ($err) {
             return json_decode($err, false);
