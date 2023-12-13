@@ -9,7 +9,7 @@ interface Status
             'code' => '1000',
             'status' => 'Paket sedang dipersiapkan',
             'description' => 'Paket sedang dipersiapkan',
-            'flag' => 'Printed',
+            'flag' => 'Goods Issue',
         ],
         1 => [
             'code' => '1010',
@@ -225,7 +225,7 @@ interface Status
             'code' => '999',
             'status' => 'Cancelled by [actor_name]',
             'description' => 'Dibatalkan oleh [actor_name]',
-            'flag' => 'Shipped',
+            'flag' => '',
         ]
     ];
 }
